@@ -31,7 +31,7 @@ Apri una issue utilizzando il template **Feature Request** e descrivi:
 Crea un fork del repository e clonalo:
 
 ```bash
-git clone https://github.com/USERNAME/Dokyll.git
+git clone https://github.com/dokyll/dokyll.git
 ```
 
 ### 2. Crea un branch
