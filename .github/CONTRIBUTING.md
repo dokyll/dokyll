@@ -1,4 +1,4 @@
-# Contributing to Dokyll
+# Contribuire a Dokyll
 
 Grazie per il tuo interesse nel contribuire a Dokyll! 🎉
 
