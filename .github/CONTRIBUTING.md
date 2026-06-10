@@ -108,7 +108,7 @@ Puoi contribuire:
 
 Non pubblicare vulnerabilità di sicurezza tramite issue pubbliche.
 
-Utilizza invece il processo di segnalazione indicato nella Security Policy.
+Se scopri una vulnerabilità di sicurezza, contatta i manutentori del progetto in privato fornendo tutti i dettagli necessari per riprodurla.
 
 ## Comportamento
 
