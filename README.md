@@ -72,6 +72,6 @@ Dokyll è in sviluppo attivo e nuove funzionalità verranno aggiunte nel tempo.
 
 ---
 
-## 📄 Licenza
+## Licenza
 
 Dokyll è sotto la licenza MIT. Guarda [LICENSE](https://github.com/dokyll/dokyll/tree/main/LICENSE) per più informazioni.
