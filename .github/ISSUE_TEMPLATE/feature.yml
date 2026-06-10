@@ -1,0 +1,99 @@
+name: Feature Request
+description: Proponi una nuova funzionalità per Dokyll
+title: "[FEATURE] "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver contribuito a migliorare Dokyll!
+
+        Prima di creare una richiesta, controlla che una proposta simile non esista già.
+
+  - type: input
+    id: title
+    attributes:
+      label: Nome della funzionalità
+      description: Dai un nome breve alla feature.
+      placeholder: "Supporto ai plugin Python"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema da risolvere
+      description: Quale problema o limitazione hai incontrato?
+      placeholder: |
+        Attualmente Dokyll non permette...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Soluzione proposta
+      description: Descrivi la funzionalità che vorresti vedere.
+      placeholder: |
+        Vorrei che Dokyll aggiungesse...
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Esempio di utilizzo
+      description: Mostra come verrebbe usata la funzionalità.
+      render: shell
+      placeholder: |
+        dokyll plugin install my-plugin
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative considerate
+      description: Hai pensato ad altre soluzioni?
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impatto previsto
+      description: Quanto sarebbe utile questa funzionalità?
+      options:
+        - Basso
+        - Medio
+        - Alto
+        - Molto alto
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: area
+    attributes:
+      label: Area interessata
+      options:
+        - label: CLI
+        - label: Builder
+        - label: Templates
+        - label: Plugins
+        - label: Performance
+        - label: Documentazione
+        - label: Altro
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informazioni aggiuntive
+      description: Mockup, screenshot, esempi da altri progetti o altre note.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Conferme
+      options:
+        - label: Ho cercato richieste simili prima di aprire questa issue.
+          required: true
+        - label: Questa proposta riguarda Dokyll e non un progetto esterno.
+          required: true
