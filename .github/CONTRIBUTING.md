@@ -14,7 +14,7 @@ Prima di aprire una nuova issue:
 2. Assicurati di utilizzare una versione recente di Dokyll.
 3. Utilizza il template **Bug Report** o **Crash Report**.
 
-## Richiedere una funzionalità
+### Richiedere una funzionalità
 
 Hai un'idea per migliorare Dokyll?
 
