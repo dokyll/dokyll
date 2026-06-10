@@ -1,0 +1,95 @@
+name: Bug Report
+description: Segnala un bug di Dokyll
+title: "[BUG] "
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver segnalato un bug in Dokyll!
+
+        Compila il modulo nel modo più dettagliato possibile.
+
+  - type: input
+    id: version
+    attributes:
+      label: Versione di Dokyll
+      description: Quale versione stai usando?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema Operativo
+      description: Dove si verifica il problema?
+      options:
+        - Windows
+        - Linux
+        - macOS
+        - Altro
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrizione del bug
+      description: Spiega chiaramente il problema.
+      placeholder: Quando eseguo "dokyll build"...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Come riprodurre il bug
+      description: Elenca i passaggi per riprodurlo.
+      placeholder: |
+        1. Esegui ...
+        2. Apri ...
+        3. Si verifica ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento atteso
+      description: Cosa avrebbe dovuto succedere?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento effettivo
+      description: Cosa è successo invece?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log o errori
+      description: Incolla eventuali errori, stack trace o output del terminale.
+      render: shell
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informazioni aggiuntive
+      description: Screenshot, file di esempio o altre informazioni utili.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Controlli
+      options:
+        - label: Ho verificato di usare l'ultima versione di Dokyll.
+          required: true
+        - label: Ho cercato issue simili già aperte.
+          required: true
