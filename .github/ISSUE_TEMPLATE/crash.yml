@@ -1,0 +1,106 @@
+name: Crash Report
+description: Segnala un crash o un arresto anomalo di Dokyll
+title: "[CRASH] "
+labels:
+  - bug
+  - crash
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per aver segnalato un crash di Dokyll.
+
+        Per aiutarci a risolvere il problema più velocemente, fornisci quante più informazioni possibili.
+
+  - type: input
+    id: version
+    attributes:
+      label: Versione di Dokyll
+      description: Quale versione stai utilizzando?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: command
+    attributes:
+      label: Comando eseguito
+      description: Quale comando ha causato il crash?
+      placeholder: "dokyll build"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Sistema Operativo
+      options:
+        - Windows
+        - Linux
+        - macOS
+        - Altro
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: Cosa è successo?
+      description: Descrivi il crash.
+      placeholder: |
+        Dokyll si è chiuso improvvisamente...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Come riprodurre il crash
+      description: Elenca i passaggi necessari.
+      placeholder: |
+        1. Creo un nuovo progetto
+        2. Aggiungo una pagina
+        3. Eseguo "dokyll build"
+        4. Crash
+    validations:
+      required: true
+
+  - type: textarea
+    id: stacktrace
+    attributes:
+      label: Stack Trace / Errore
+      description: Incolla l'intero messaggio di errore se disponibile.
+      render: shell
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log di Dokyll
+      description: Incolla eventuali log generati prima del crash.
+      render: shell
+
+  - type: textarea
+    id: project
+    attributes:
+      label: Struttura del progetto
+      description: Se possibile, mostra la struttura delle cartelle coinvolte.
+      render: text
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informazioni aggiuntive
+      description: Screenshot, file di esempio o dettagli utili.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Conferme
+      options:
+        - label: Ho verificato che il problema si verifica anche dopo aver riavviato Dokyll.
+          required: true
+        - label: Ho verificato di utilizzare una versione supportata di Dokyll.
+          required: true
+        - label: Ho cercato report simili prima di aprire questa segnalazione.
+          required: true
