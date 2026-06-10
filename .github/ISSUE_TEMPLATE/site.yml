@@ -1,0 +1,123 @@
+name: Website & Documentation
+description: Segnala problemi o suggerisci miglioramenti per il sito e la documentazione di Dokyll
+title: "[SITE] "
+labels:
+  - website
+  - documentation
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Grazie per contribuire a migliorare il sito e la documentazione di Dokyll!
+
+        Usa questo modulo per:
+        - Errori nella documentazione
+        - Link rotti
+        - Problemi del sito
+        - Problemi responsive
+        - Suggerimenti sui contenuti
+        - Miglioramenti dell'esperienza utente
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      description: Di cosa si tratta?
+      options:
+        - Bug del sito
+        - Errore nella documentazione
+        - Link rotto
+        - Problema responsive
+        - Suggerimento per la documentazione
+        - Suggerimento per il sito
+        - Altro
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Pagina interessata
+      description: Inserisci l'URL o il percorso della pagina.
+      placeholder: "/download/"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrizione
+      description: Descrivi chiaramente il problema o il suggerimento.
+      placeholder: |
+        Nella pagina...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Comportamento atteso
+      description: Cosa dovrebbe accadere?
+      placeholder: |
+        Mi aspettavo che...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Comportamento attuale
+      description: Cosa accade invece?
+      placeholder: |
+        Attualmente...
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Come riprodurre il problema
+      description: Se si tratta di un bug, descrivi i passaggi.
+      placeholder: |
+        1. Vai su...
+        2. Clicca...
+        3. Osserva...
+      render: text
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Dispositivo
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+        - Tutti
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Se rilevante.
+      placeholder: "Chrome 136, Firefox 141, Safari..."
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshot o immagini
+      description: Trascina qui screenshot o immagini se utili.
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Informazioni aggiuntive
+      description: Qualsiasi altro dettaglio utile.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Conferme
+      options:
+        - label: Ho controllato che non esista già una segnalazione simile.
+          required: true
+        - label: La segnalazione riguarda il sito o la documentazione di Dokyll.
+          required: true
