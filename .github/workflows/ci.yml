@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Create test files
+        run: |
+          mkdir -p ci
+          echo "Test file" > ci/f1.txt
+          echo "Test file" > ci/f2.txt
+
+      - name: Run dokyll
+        run: python dokyll.py
+
+      - name: Build pages
+        run: python dokyll.py build-pages ci
