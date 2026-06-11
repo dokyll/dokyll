@@ -1,5 +1,7 @@
 # Dokyll
 
+[![CI Status](https://github.com/dokyll/dokyll/actions/workflows/ci.yml/badge.svg)](https://github.com/dokyll/dokyll/actions/workflows/ci.yml)
+
 Dokyll è un generatore di siti statici leggero e veloce che trasforma i tuoi progetti in pagine web pronte da pubblicare.
 
 È pensato per essere semplice da usare, facilmente estendibile e adatto a qualsiasi tipo di progetto basato su file.
