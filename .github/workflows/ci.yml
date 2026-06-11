@@ -6,7 +6,7 @@ on:
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
@@ -30,3 +30,8 @@ jobs:
 
       - name: Build pages
         run: python dokyll.py build-pages ci
+
+      - name: Other tests
+        run: |
+          python dokyll.py install-plugin test
+          python dokyll.py plugin test
