@@ -11,7 +11,8 @@ BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_PATH)
 
 import core.utils
-
+import core.install_plugin
+import core.run
 
 def help_menu():
     print("Dokyll Page Builder")
@@ -20,6 +21,10 @@ def help_menu():
     print("- dokyll build-pages [NOME_PROGETTO]")
     print("  Fa la build di un progetto.")
     print("  Il nome progetto deve coincidere con la directory.")
+    print("- dokyll install-plugin [NOME_PLUGIN]")
+    print("  Installa un plugin")
+    print("- dokyll plugin [NOME_PLUGIN]")
+    print("  Avvia un plugin.")
 
 
 if len(sys.argv) < 2:
@@ -35,6 +40,22 @@ if command == "build-pages":
 
     project = sys.argv[2]
     core.utils.build_pages(project)
+
+elif command == "install-plugin":
+    if len(sys.argv) < 3:
+        print("Errore: manca il nome del plugin")
+        sys.exit(1)
+    
+    plugin = sys.argv[2]
+    core.install_plugin.install_plugin(plugin)
+
+elif command == "plugin":
+    if len(sys.argv) < 3:
+        print("Errore: manca il nome del plugin")
+        sys.exit(1)
+    
+    plugin = sys.argv[2]
+    core.run.run_plugin(plugin)
 
 else:
     help_menu()
