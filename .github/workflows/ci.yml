@@ -23,8 +23,10 @@ jobs:
           echo "Test file" > ci/f1.txt
           echo "Test file" > ci/f2.txt
 
-      - name: Run dokyll
-        run: python dokyll.py
+      - name: Install requires + run dokyll
+        run: |
+          python -m pip install requests
+          python dokyll.py
 
       - name: Build pages
         run: python dokyll.py build-pages ci
