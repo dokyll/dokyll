@@ -1,6 +1,7 @@
 # Dokyll
 
 [![CI Status](https://github.com/dokyll/dokyll/actions/workflows/ci.yml/badge.svg)](https://github.com/dokyll/dokyll/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Dokyll è un generatore di siti statici leggero e veloce che trasforma i tuoi progetti in pagine web pronte da pubblicare.
 
