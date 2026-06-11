@@ -64,7 +64,7 @@ def build_pages(project_name):
         _build_file(file)
 
     # Prende tutti i file in dokyll_temp e li comprime
-    temp_dir = Path("dokyll_temp")
+    temp_dir = Path(f"dokyll_temp/{project_name}")
 
     zip_path = Path(f"{project_path.name}.zip")
 
