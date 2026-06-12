@@ -80,4 +80,11 @@ Vogliamo che Dokyll sia un progetto in cui tutti possano sentirsi benvenuti.
 
 ---
 
+## Attenzione!
+
+Abbiamo aggiunto un sistema automatico che rileva violazioni di questo Codice di Condotta, che non è perfetto. \
+Potere contattare i maintainer del progetto in privato per eventuali bug o suggerimenti.
+
+---
+
 Grazie per contribuire a Dokyll e per aiutare a costruire una community positiva. 🚀
