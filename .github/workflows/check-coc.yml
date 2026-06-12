@@ -31,7 +31,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo,
                 issue_number: issue.number,
-                body: `Emh, scusa, ha violato il codice di condotta! Si faccia un ripasso qui: https://github.com/dokyll/dokyll/blob/main/.github/CODE_OF_CONDUCT.md.\nÈ invitato a correggere l'issue entro 7 giorni per evitare un report.`
+                body: `👋 Ciao!\nSembra che questa issue possa contenere elementi in contrasto con il Codice di Condotta di Dokyll.\nPuoi consultarlo qui: https://github.com/dokyll/dokyll/blob/main/.github/CODE_OF_CONDUCT.md\nHai 7 giorni di tempo per correggere l'issue ed evitare la generazione di un report automatico.\nGrazie!`
               });
               
               // Aggiungi label
