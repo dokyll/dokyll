@@ -1,0 +1,66 @@
+name: CoC Report 7 giorni
+on:
+  schedule:
+    - cron: '0 9 *'  # gira ogni giorno alle 9:00 UTC
+  workflow_dispatch:  # puoi lanciarlo a mano per test
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  report-violations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trova issue vecchie da moderare
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            const sevenDaysAgoISO = sevenDaysAgo.toISOString();
+            
+            // Prende tutte le issue aperte con label da-moderare
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo,
+              state: 'open',
+              labels: 'da-moderare',
+              per_page: 100
+            });
+            
+            const oldViolations = issues.filter(issue => 
+              new Date(issue.created_at) < sevenDaysAgo
+            );
+            
+            if (oldViolations.length === 0) {
+              console.log('Nessuna violazione vecchia di 7+ giorni');
+              return;
+            }
+            
+            let reportBody = `## Report automatico CoC - Violazioni 7+ giorni 📋\n\n`;
+            reportBody += `Questo report è generato automaticamente dal workflow CoC.\n`;
+            reportBody += `Le seguenti issue hanno label \`da-moderare\` da più di 7 giorni e l'utente non ha corretto.\n\n`;
+            reportBody += `**Azione richiesta da Codice di Condotta:** valutare limitazione/esclusione dell'utente.\n\n`;
+            reportBody += `---\n\n`;
+            
+            for (const issue of oldViolations) {
+              reportBody += `### @${issue.user.login}\n`;
+              reportBody += `- **Issue:** #${issue.number} - ${issue.title}\n`;
+              reportBody += `- **Link:** ${issue.html_url}\n`;
+              reportBody += `- **Aperta il:** ${issue.created_at.split('T')[0]}\n`;
+              reportBody += `- **Link CoC:** https://github.com/${context.repo.owner}/${context.repo}/blob/main/.github/CODE_OF_CONDUCT.md\n`;
+            }
+            
+            reportBody += `---\n*Report generato il ${new Date().toISOString().split('T')[0]}*`;
+            
+            // Crea una nuova issue di report per i maintainer
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo,
+              title: `[COC REPORT] Violazioni 7+ giorni - ${new Date().toISOString().split('T')[0]}`,
+              body: reportBody,
+              labels: ['coc-report', 'manutentori-solo']
+            });
+            
+            console.log(`Report creato per ${oldViolations.length} violazioni`);
