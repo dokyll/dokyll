@@ -1,0 +1,48 @@
+name: Code of Conduct Check
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+jobs:
+  check-conduct:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Check for prohibited words
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const badWords = [
+              'cazzo', 'merda', 'stronzo', 'coglione', 'vaffanculo', 
+              'fanculo', 'idiota', 'ritardato', 'incapace', 'schifo'
+            ];
+            
+            const issue = context.payload.issue;
+            const text = `${issue.title} ${issue.body}`.toLowerCase();
+            
+            const found = badWords.filter(word => text.includes(word));
+            
+            if (found.length > 0) {
+              // Posta commento
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo,
+                issue_number: issue.number,
+                body: `Emh, scusa, ha violato il codice di condotta! Si faccia un ripasso qui: https://github.com/dokyll/dokyll/blob/main/.github/CODE_OF_CONDUCT.md.\nÈ invitato a correggere l'issue entro 7 giorni per evitare un report.`
+              });
+              
+              // Aggiungi label
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo,
+                issue_number: issue.number,
+                labels: ['da-moderare', 'non-letto']
+              });
+              
+              core.info(`Trovate parole: ${found.join(', ')}`);
+            } else {
+              core.info('Nessuna violazione trovata');
+            }
