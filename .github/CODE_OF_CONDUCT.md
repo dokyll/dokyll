@@ -82,8 +82,13 @@ Vogliamo che Dokyll sia un progetto in cui tutti possano sentirsi benvenuti.
 
 ## Attenzione!
 
-Abbiamo aggiunto un sistema automatico che rileva violazioni di questo Codice di Condotta, che non è perfetto. \
-Potere contattare i maintainer del progetto in privato per eventuali bug o suggerimenti.
+Dokyll utilizza un sistema automatico per rilevare possibili violazioni di questo Codice di Condotta.
+
+Come ogni sistema automatico, non è perfetto e potrebbe generare segnalazioni errate.
+
+Se ritieni che una segnalazione sia stata effettuata per errore, oppure hai suggerimenti o hai individuato un bug nel sistema di moderazione, puoi contattare privatamente i manutentori del progetto.
+
+Grazie per la collaborazione.
 
 ---
 
