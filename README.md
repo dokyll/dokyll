@@ -87,3 +87,11 @@ Dokyll è sotto la licenza MIT. Guarda [LICENSE](https://github.com/dokyll/dokyl
 - Usi Dokyll nel tuo lavoro? Sì
 - Modifichi il core e lo vendi? Sì  
 - Devi solo lasciare il copyright nel file LICENSE
+
+---
+
+## Versione `dev`
+
+Puoi provare la versione `dev` nell'altro branch `dev`:
+
+[Vai al branch](https://github.com/dokyll/dokyll/tree/dev)
