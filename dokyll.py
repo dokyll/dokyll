@@ -53,9 +53,17 @@ elif command == "plugin":
     if len(sys.argv) < 3:
         print("Errore: manca il nome del plugin")
         sys.exit(1)
-    
+
     plugin = sys.argv[2]
     core.run.run_plugin(plugin)
+
+elif command = "unzip":
+    if len(sys.argv) < 3:
+        print("Nome build mancante.")
+        sys.exit(1)
+
+    build = sys.argv[2]
+    core.utils.unzip_build(build)
 
 else:
     help_menu()
