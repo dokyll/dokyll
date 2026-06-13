@@ -1,0 +1,25 @@
+{
+  "name": "Dokyll Dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14",
+  
+  "postCreateCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "ms-python.pylint"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  
+  "postStartCommand": "git config --global --add safe.directory /workspaces/dokyll",
+  "remoteUser": "vscode"
+}
