@@ -1,4 +1,4 @@
-# Documentazione Dokyll 1.0.0
+# Documentazione Dokyll `dev`
 
 **Da zero:** 
 - [A colpo d'occhio](orview.md)

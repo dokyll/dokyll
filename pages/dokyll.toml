@@ -1,0 +1,13 @@
+[files.ignore]
+files_to_ignore = []
+dirs_to_ignore = []
+not_serve_but_include = True
+
+[dokyll.build]
+include_plugins = []
+post_build = ""
+pre_build = ""
+
+[dokyll.server]
+prov = "localhost"
+domain = 8000
