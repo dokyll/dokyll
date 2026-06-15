@@ -16,7 +16,7 @@ import core.run
 
 def help_menu():
     print("Dokyll Page Builder")
-    print("Versione dev 20260614\n")
+    print("Versione dev 20260615\n")
     print("Comandi:")
     print("- dokyll build-pages [NOME_PROGETTO]")
     print("  Fa la build di un progetto.")
