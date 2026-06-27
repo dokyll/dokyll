@@ -1,0 +1,13 @@
+[files.ignore]
+files_to_ignore = []
+dirs_to_ignore = []
+not_serve_but_include = true
+
+[dokyll.build]
+include_plugins = []
+post_build_cmd = ""
+pre_build_cmd = ""
+
+[dokyll.server]
+cfgtype = "localhost"
+port = 8000
