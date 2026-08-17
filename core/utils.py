@@ -83,3 +83,43 @@ def build_pages(project_name):
 
     # Se tutto è andato bene, mostra un messaggio di congratulazioni
     print(f"Congratulazioni! La tua build è disponibile in {dok_path}!")
+
+
+def unzip_build(file_of_build):
+    """Prende una build e la decomprime."""
+
+    build_path = Path(file_of_build)
+
+    if not build_path.exists():
+        raise FileNotFoundError(f"Build non trovata: {build_path}")
+
+    # Copia la build e la rinomina in .zip
+    temp_zip = build_path.with_suffix(".zip")
+    shutil.copy2(build_path, temp_zip)
+
+    # Crea la cartella di destinazione
+    output_dir = build_path.with_suffix("")
+    output_dir.mkdir(exist_ok=True)
+
+    # Estrae l'archivio principale
+    with zipfile.ZipFile(temp_zip, "r") as z:
+        z.extractall(output_dir)
+
+    # Cerca tutti i file .bin estratti
+    for bin_file in output_dir.rglob("*.bin"):
+
+        # Rinomina temporaneamente il .bin in .zip
+        zip_file = bin_file.with_suffix(".zip")
+        bin_file.rename(zip_file)
+
+        # Estrae il contenuto nella stessa cartella
+        with zipfile.ZipFile(zip_file, "r") as z:
+            z.extractall(zip_file.parent)
+
+        # Elimina il .zip temporaneo
+        zip_file.unlink()
+
+    # Elimina la copia .zip iniziale
+    temp_zip.unlink()
+
+    print(f"Decompressione completata in '{output_dir}'.")
